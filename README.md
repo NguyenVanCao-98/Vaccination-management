@@ -17,16 +17,6 @@
 1. [Giới thiệu](#1-giới-thiệu)  
 2. [Tính năng chính](#2-tính-năng-chính)  
 3. [Công nghệ sử dụng](#3-công-nghệ-sử-dụng)  
-4. [Cấu trúc dự án](#4-cấu-trúc-dự-án)  
-5. [Cấu hình hệ thống](#5-cấu-hình-hệ-thống)  
-6. [Hướng dẫn chạy dự án](#6-hướng-dẫn-chạy-dự-án)  
-   - [Chạy bằng Maven](#chạy-bằng-maven)  
-   - [Chạy bằng Docker](#chạy-bằng-docker)  
-7. [Tài khoản mẫu](#7-tài-khoản-mẫu)  
-8. [Nhóm phát triển](#8-nhóm-phát-triển)  
-9. [Giấy phép](#9-giấy-phép)  
-
----
 
 ## 1. 🎯 Giới thiệu
 
