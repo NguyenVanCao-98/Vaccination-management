@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{employee/layout-employee :: areas(~{::title}, ~{::main})}">
+<head>
+    <title>Cập nhật hồ sơ</title>
+</head>
+<body>
+<main th:with="tab='update'">
+
+    <!-- Form chọn bệnh nhân (GET) -->
+  <form method="get" th:action="@{/employee/update}" class="space-y-4 max-w-3xl">
+    <label>ID bệnh nhân</label>
+    <select name="maBenhNhan" class="w-full px-4 py-2 border rounded-lg" onchange="this.form.submit()">
+        <option value="">-- Chọn ID bệnh nhân --</option>
+        <option th:each="p : ${allPatients}" 
+                th:value="${p.maBenhNhan}" 
+                th:text="${p.maBenhNhan}" 
+                th:selected="${p.maBenhNhan} == ${benhNhan.maBenhNhan}">
+        </option>
+    </select>
+</form>
+
+
+    <!-- Form cập nhật thông tin bệnh nhân (POST) -->
+    <form method="post" th:action="@{/employee/update}" th:object="${benhNhan}" class="space-y-6 max-w-3xl mt-4">
+        <input type="hidden" th:field="*{maBenhNhan}"/>
+
+        <div>
+            <label>Họ và tên</label>
+            <input type="text" th:field="*{hoTen}" class="w-full px-4 py-2 border rounded-lg"/>
+        </div>
+
+        <div>
+            <label>Giới tính</label>
+            <div class="flex space-x-4 mt-1">
+               <label><input type="radio" th:field="*{gioiTinh}" value="NAM"/> Nam</label>
+<label><input type="radio" th:field="*{gioiTinh}" value="NU"/> Nữ</label>
+
+            </div>
+        </div>
+
+        <div>
+            <label>Tuổi</label>
+            <input type="number" th:field="*{tuoi}" class="w-full px-4 py-2 border rounded-lg"/>
+        </div>
+
+        <div>
+            <label>Người giám hộ</label>
+            <input type="text" th:field="*{tenNguoiGiamHo}" class="w-full px-4 py-2 border rounded-lg"/>
+        </div>
+
+        <div>
+            <label>Địa chỉ</label>
+            <input type="text" th:field="*{diaChi}" class="w-full px-4 py-2 border rounded-lg"/>
+        </div>
+
+        <div>
+            <label>Điện thoại</label>
+            <input type="text" th:field="*{soDienThoai}" class="w-full px-4 py-2 border rounded-lg"/>
+        </div>
+
+        <div class="flex space-x-4">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg">Cập nhật</button>
+            <button type="reset" class="bg-gray-300 px-6 py-2 rounded-lg">Hủy</button>
+        </div>
+
+        <!-- Thông báo -->
+        <div th:if="${successMessage}" class="text-green-600 mt-2" th:text="${successMessage}"></div>
+        <div th:if="${errorMessage}" class="text-red-600 mt-2" th:text="${errorMessage}"></div>
+    </form>
+
+</main>
+</body>
+</html>
